@@ -1,0 +1,28 @@
+[0;1;32m●[0m mariadb.service - MariaDB 10.6.18 database server
+     Loaded: loaded (/lib/systemd/system/mariadb.service; enabled; vendor preset: enabled)
+     Active: [0;1;32mactive (running)[0m since Fri 2024-12-06 17:57:16 EST; 3 days ago
+       Docs: man:mariadbd(8)
+             https://mariadb.com/kb/en/library/systemd/
+    Process: 1212 ExecStartPre=/usr/bin/install -m 755 -o mysql -g root -d /var/run/mysqld (code=exited, status=0/SUCCESS)
+    Process: 1238 ExecStartPre=/bin/sh -c systemctl unset-environment _WSREP_START_POSITION (code=exited, status=0/SUCCESS)
+    Process: 1254 ExecStartPre=/bin/sh -c [ ! -e /usr/bin/galera_recovery ] && VAR= ||   VAR=`cd /usr/bin/..; /usr/bin/galera_recovery`; [ $? -eq 0 ]   && systemctl set-environment _WSREP_START_POSITION=$VAR || exit 1 (code=exited, status=0/SUCCESS)
+    Process: 1351 ExecStartPost=/bin/sh -c systemctl unset-environment _WSREP_START_POSITION (code=exited, status=0/SUCCESS)
+    Process: 1357 ExecStartPost=/etc/mysql/debian-start (code=exited, status=0/SUCCESS)
+   Main PID: 1308 (mariadbd)
+     Status: "Taking your SQL requests now..."
+      Tasks: 19 (limit: 218728)
+     Memory: 97.9M
+        CPU: 16.953s
+     CGroup: /system.slice/mariadb.service
+             └─1308 /usr/sbin/mariadbd
+
+Dec 06 17:57:16 laptop systemd[1]: Started MariaDB 10.6.18 database server.
+Dec 06 17:57:16 laptop /etc/mysql/debian-start[1362]: Upgrading MySQL tables if necessary.
+Dec 06 17:57:16 laptop /etc/mysql/debian-start[1368]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mLooking for 'mariadb' as: /usr/bin/mariadb[0m
+Dec 06 17:57:16 laptop /etc/mysql/debian-start[1368]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mLooking for 'mariadb-check' as: /usr/bin/mariadb-check[0m
+Dec 06 17:57:16 laptop /etc/mysql/debian-start[1368]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mThis installation of MariaDB is already upgraded to 10.6.18-MariaDB.[0m
+Dec 06 17:57:16 laptop /etc/mysql/debian-start[1368]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mThere is no need to run mysql_upgrade again for 10.6.18-MariaDB.[0m
+Dec 06 17:57:16 laptop /etc/mysql/debian-start[1368]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mYou can use --force if you still want to run mysql_upgrade[0m
+Dec 06 17:57:16 laptop /etc/mysql/debian-start[1392]: Checking for insecure root accounts.
+Dec 06 17:57:16 laptop /etc/mysql/debian-start[1398]: Triggering myisam-recover for all MyISAM tables and aria-recover for all Aria tables
+Dec 09 16:47:44 laptop mariadbd[1308]: 2024-12-09 16:47:44 31 [Warning] Access denied for user 'taxi'@'localhost'

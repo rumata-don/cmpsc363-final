@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CMPSC-363 Final Project</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-gray-100">
+    <div class="min-h-screen">
+        <!-- Sidebar -->
+        <aside class="fixed inset-y-0 left-0 bg-white w-64 shadow-lg">
+            <div class="p-6">
+                <h1 class="text-2xl font-bold text-gray-800">TaxiBoard</h1>
+            </div>
+            <nav class="mt-6">
+                <ul class="space-y-2">
+                    <li>
+                        <a href="#" class="flex items-center px-6 py-3 text-gray-700 hover:bg-gray-100" id="customersLink">
+                            <span>Customers</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="flex items-center px-6 py-3 text-gray-700 hover:bg-gray-100" id="driversLink">
+                            <span>Drivers</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="flex items-center px-6 py-3 text-gray-700 hover:bg-gray-100" id="vehiclesLink">
+                            <span>Vehicles</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="ml-64 p-8">
+            <!-- Customer content will be dynamically inserted here -->
+            <div id="driversSection" style="display: none;">
+                <div class="flex justify-between items-center mb-6">
+                    <h2 class="text-2xl font-bold">Drivers Management</h2>
+                    <button id="addDriverBtn" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
+                        Add New Driver
+                    </button>
+                </div>
+                <div id="driversTable" class="bg-white rounded-lg shadow p-6">
+                    <!-- Drivers table will be inserted here -->
+                </div>
+                <!-- Modal for adding/editing drivers -->
+                <div id="driverModal" class="fixed inset-0 bg-gray-600 bg-opacity-50 hidden">
+                    <div class="bg-white p-8 max-w-2xl mx-auto mt-20 rounded-lg">
+                        <h3 id="modalTitle" class="text-xl font-bold mb-4">Add New Driver</h3>
+                        <form id="driverForm">
+                            <!-- Form fields will be dynamically populated -->
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div id="vehiclesSection" style="display: none;">
+                <div class="flex justify-between items-center mb-6">
+                    <h2 class="text-2xl font-bold">Vehicles Management</h2>
+                    <button id="addVehicleBtn" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
+                        Add New Vehicle
+                    </button>
+                </div>
+                <div id="vehiclesTable" class="bg-white rounded-lg shadow p-6 mb-6">
+                    <!-- Vehicles table will be inserted here -->
+                </div>
+                <div id="maintenanceRecordsSection" class="bg-white rounded-lg shadow p-6">
+                    <h3 class="text-xl font-bold mb-4">Maintenance Records</h3>
+                    <div id="maintenanceRecordsTable">
+                        <!-- Maintenance records table will be inserted here -->
+                    </div>
+                </div>
+
+                <!-- Modal for adding/editing vehicles -->
+                <div id="vehicleModal" class="fixed inset-0 bg-gray-600 bg-opacity-50 hidden">
+                    <div class="bg-white p-8 max-w-2xl mx-auto mt-20 rounded-lg">
+                        <h3 id="vehicleModalTitle" class="text-xl font-bold mb-4">Add New Vehicle</h3>
+                        <form id="vehicleForm">
+                            <!-- Form fields will be dynamically populated -->
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Modal for adding/editing maintenance records -->
+                <div id="maintenanceModal" class="fixed inset-0 bg-gray-600 bg-opacity-50 hidden">
+                    <div class="bg-white p-8 max-w-2xl mx-auto mt-20 rounded-lg">
+                        <h3 id="maintenanceModalTitle" class="text-xl font-bold mb-4">Add Maintenance Record</h3>
+                        <form id="maintenanceForm">
+                            <!-- Form fields will be dynamically populated -->
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="app.js"></script>
+    <script src="customers.js"></script>
+    <script src="drivers.js"></script>
+    <script src="vehicles.js"></script>
+</body>
+</html> 
