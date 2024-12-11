@@ -26,13 +26,6 @@ Customer (
     registration_date
 )
 
-Zone (
-    zone_id PRIMARY KEY,
-    name,
-    city,
-    base_fare
-)
-
 -- Weak Entity Set (depends on Trip)
 Payment (
     payment_id,
@@ -49,8 +42,6 @@ Trip (
     driver_id FOREIGN KEY REFERENCES Driver,
     vehicle_id FOREIGN KEY REFERENCES Vehicle,
     customer_id FOREIGN KEY REFERENCES Customer,
-    pickup_zone_id FOREIGN KEY REFERENCES Zone,
-    dropoff_zone_id FOREIGN KEY REFERENCES Zone,
     start_time,
     end_time,
     distance,
