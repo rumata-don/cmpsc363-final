@@ -1,6 +1,7 @@
 package com.taxi.company.model;
 
 import jakarta.persistence.*;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.io.Serializable;
@@ -19,6 +20,7 @@ public class Payment implements Serializable {
 
     @ManyToOne
     @JoinColumn(name = "trip_id", insertable = false, updatable = false)
+    @JsonBackReference
     private Trip trip;
 
     @Column(name = "amount", nullable = false, precision = 10, scale = 2)

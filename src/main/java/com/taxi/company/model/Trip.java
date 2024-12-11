@@ -1,6 +1,7 @@
 package com.taxi.company.model;
 
 import jakarta.persistence.*;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.List;
@@ -39,6 +40,7 @@ public class Trip implements Serializable {
     @Column(name = "status", nullable = false)
     private TripStatus status;
 
+    @JsonManagedReference
     @OneToMany(mappedBy = "trip", cascade = CascadeType.ALL)
     private List<Payment> payments;
 

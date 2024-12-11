@@ -1,6 +1,17 @@
 // Dashboard initialization
 document.addEventListener('DOMContentLoaded', () => {
     initializeDashboard();
+    // Load the last active tab only if one was saved
+    const lastActiveTab = localStorage.getItem('activeTab');
+    if (lastActiveTab) {
+        // Small delay to ensure all managers are initialized
+        setTimeout(() => {
+            document.getElementById(lastActiveTab)?.click();
+        }, 100);
+    } else {
+        // Default to customers tab if no tab was saved
+        document.getElementById('customersLink')?.click();
+    }
 });
 
 function initializeDashboard() {
@@ -15,10 +26,19 @@ function initializeDashboard() {
     navItems.forEach(item => {
         item.addEventListener('click', (e) => {
             e.preventDefault();
+            
+            // Don't proceed if clicking the already active tab
+            if (item.classList.contains('bg-gray-100')) {
+                return;
+            }
+
             // Remove active class from all items
             navItems.forEach(navItem => navItem.classList.remove('bg-gray-100'));
             // Add active class to clicked item
             item.classList.add('bg-gray-100');
+            
+            // Save the active tab ID to localStorage
+            localStorage.setItem('activeTab', item.id);
 
             // Get all sections
             const sections = {
