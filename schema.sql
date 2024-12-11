@@ -43,7 +43,7 @@ CREATE TABLE Trip (
     PRIMARY KEY (trip_id),
     FOREIGN KEY (driver_id) REFERENCES Driver(driver_id),
     FOREIGN KEY (vehicle_id) REFERENCES Vehicle(vehicle_id),
-    FOREIGN KEY (customer_id) REFERENCES Customer(customer_id),
+    FOREIGN KEY (customer_id) REFERENCES Customer(customer_id)
 ) ENGINE=InnoDB;
 
 -- Weak Entity Set
