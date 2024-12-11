@@ -24,12 +24,22 @@ function initializeDashboard() {
             const sections = {
                 customersSection: document.getElementById('customersSection'),
                 driversSection: document.getElementById('driversSection'),
-                vehiclesSection: document.getElementById('vehiclesSection')
+                vehiclesSection: document.getElementById('vehiclesSection'),
+                tripsSection: document.getElementById('tripsSection')
             };
 
-            // Hide all sections first
+            // Hide all sections first and clear trips table
             Object.values(sections).forEach(section => {
-                if (section) section.style.display = 'none';
+                if (section) {
+                    section.style.display = 'none';
+                    // Clear trips table if it exists
+                    if (section.id === 'tripsSection') {
+                        const tripsTable = section.querySelector('#tripsTable');
+                        if (tripsTable) {
+                            tripsTable.innerHTML = '';
+                        }
+                    }
+                }
             });
 
             // Show the selected section
@@ -55,6 +65,14 @@ function initializeDashboard() {
                         sections.vehiclesSection.style.display = 'block';
                         if (window.vehicleManager) {
                             window.vehicleManager.loadVehicles();
+                        }
+                    }
+                    break;
+                case 'tripsLink':
+                    if (sections.tripsSection) {
+                        sections.tripsSection.style.display = 'block';
+                        if (window.tripManager) {
+                            window.tripManager.loadTrips();
                         }
                     }
                     break;

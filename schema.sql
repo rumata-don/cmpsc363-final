@@ -31,21 +31,11 @@ CREATE TABLE Customer (
     PRIMARY KEY (customer_id)
 ) ENGINE=InnoDB;
 
-CREATE TABLE Zone (
-    zone_id INT AUTO_INCREMENT,
-    name VARCHAR(50) NOT NULL,
-    city VARCHAR(50) NOT NULL,
-    base_fare DECIMAL(10,2) NOT NULL,
-    PRIMARY KEY (zone_id)
-) ENGINE=InnoDB;
-
 CREATE TABLE Trip (
     trip_id INT AUTO_INCREMENT,
     driver_id INT NOT NULL,
     vehicle_id INT NOT NULL,
     customer_id INT NOT NULL,
-    pickup_zone_id INT NOT NULL,
-    dropoff_zone_id INT NOT NULL,
     start_time DATETIME NOT NULL,
     end_time DATETIME,
     distance DECIMAL(10,2),
@@ -54,8 +44,6 @@ CREATE TABLE Trip (
     FOREIGN KEY (driver_id) REFERENCES Driver(driver_id),
     FOREIGN KEY (vehicle_id) REFERENCES Vehicle(vehicle_id),
     FOREIGN KEY (customer_id) REFERENCES Customer(customer_id),
-    FOREIGN KEY (pickup_zone_id) REFERENCES Zone(zone_id),
-    FOREIGN KEY (dropoff_zone_id) REFERENCES Zone(zone_id)
 ) ENGINE=InnoDB;
 
 -- Weak Entity Set

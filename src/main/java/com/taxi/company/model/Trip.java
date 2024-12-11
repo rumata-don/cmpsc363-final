@@ -26,14 +26,6 @@ public class Trip implements Serializable {
     @JoinColumn(name = "customer_id", nullable = false)
     private Customer customer;
 
-    @ManyToOne
-    @JoinColumn(name = "pickup_zone_id", nullable = false)
-    private Zone pickupZone;
-
-    @ManyToOne
-    @JoinColumn(name = "dropoff_zone_id", nullable = false)
-    private Zone dropoffZone;
-
     @Column(name = "start_time", nullable = false)
     private LocalDateTime startTime;
 
@@ -88,22 +80,6 @@ public class Trip implements Serializable {
 
     public void setCustomer(Customer customer) {
         this.customer = customer;
-    }
-
-    public Zone getPickupZone() {
-        return pickupZone;
-    }
-
-    public void setPickupZone(Zone pickupZone) {
-        this.pickupZone = pickupZone;
-    }
-
-    public Zone getDropoffZone() {
-        return dropoffZone;
-    }
-
-    public void setDropoffZone(Zone dropoffZone) {
-        this.dropoffZone = dropoffZone;
     }
 
     public LocalDateTime getStartTime() {
